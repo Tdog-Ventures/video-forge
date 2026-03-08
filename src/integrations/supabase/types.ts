@@ -149,6 +149,36 @@ export type Database = {
         }
         Relationships: []
       }
+      curriculum_weeks: {
+        Row: {
+          content: Json
+          created_at: string
+          description: string | null
+          id: string
+          is_locked: boolean
+          title: string
+          week_number: number
+        }
+        Insert: {
+          content?: Json
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_locked?: boolean
+          title: string
+          week_number: number
+        }
+        Update: {
+          content?: Json
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_locked?: boolean
+          title?: string
+          week_number?: number
+        }
+        Relationships: []
+      }
       dfy_orders: {
         Row: {
           business_name: string | null
