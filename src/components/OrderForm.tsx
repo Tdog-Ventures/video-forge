@@ -28,6 +28,7 @@ const OrderForm = () => {
     themes: [] as string[],
     customPricing: false,
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const toggleTheme = (t: string) => {
     setForm((prev) => ({
@@ -38,13 +39,28 @@ const OrderForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.niche) {
       toast.error("Please fill in all required fields.");
       return;
     }
+    setSubmitting(true);
+    const { error } = await supabase.from("dfy_orders").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      business_name: form.story.trim() || null,
+      business_type: form.niche,
+      payment_plan: form.customPricing ? "custom" : "standard",
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error(error);
+      return;
+    }
     toast.success("Your spot has been reserved! We'll be in touch within 24 hours.");
+    setForm({ name: "", email: "", phone: "", niche: "", story: "", themes: [], customPricing: false });
   };
 
   const inputClass =
