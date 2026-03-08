@@ -14,7 +14,7 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex items-center gap-1 rounded-full border border-border bg-card/80 backdrop-blur-md p-1">
+    <div className="flex items-center gap-1 rounded-full border border-border bg-card/80 backdrop-blur-md p-1">
       {modes.map(({ value, icon: Icon, label }) => (
         <button
           key={value}
