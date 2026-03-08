@@ -1,14 +1,21 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <section ref={sectionRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background image with parallax */}
+      <motion.img src={heroBg} alt="" style={{ y: bgY }} className="absolute inset-0 w-full h-[120%] object-cover" />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-background/75" />
       {/* Grid background */}
