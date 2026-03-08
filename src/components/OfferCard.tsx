@@ -54,7 +54,7 @@ const OfferCard = () => {
               $997
             </div>
             <p className="text-muted-foreground text-sm">
-              one-time · or <span className="text-primary font-semibold">$199/month × 5</span>
+              one-time payment in AUD
             </p>
           </div>
 
