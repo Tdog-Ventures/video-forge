@@ -25,7 +25,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-6">
+    <section id="faq" className="py-24 px-6 scroll-mt-20">
       <div className="container max-w-3xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

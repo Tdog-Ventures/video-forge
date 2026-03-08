@@ -9,7 +9,7 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section className="py-24 px-6">
+  <section id="process" className="py-24 px-6 scroll-mt-20">
     <div className="container max-w-4xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
