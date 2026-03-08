@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Zap, CreditCard } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
@@ -59,21 +59,14 @@ const OfferCard = () => {
           </div>
 
           <Button variant="neon" size="xl" className="w-full" asChild>
-            <a href="https://buy.stripe.com/PLACEHOLDER_FULL" target="_blank" rel="noopener noreferrer">
+            <a href="https://buy.stripe.com/8x2cN69Bs9bG3Ve2sf33W03" target="_blank" rel="noopener noreferrer">
               <Zap className="w-5 h-5" />
-              Claim Your Spot
-            </a>
-          </Button>
-
-          <Button variant="neon-outline" size="xl" className="w-full mt-3" asChild>
-            <a href="https://buy.stripe.com/PLACEHOLDER_SPLIT" target="_blank" rel="noopener noreferrer">
-              <CreditCard className="w-5 h-5" />
-              Payment Plan — $199/mo × 5
+              Get Started — $997 AUD
             </a>
           </Button>
 
           <p className="text-center text-muted-foreground text-xs mt-4">
-            30-day money-back guarantee · Secure checkout
+            One-time payment. Full delivery within 48 hours.
           </p>
         </motion.div>
       </div>
