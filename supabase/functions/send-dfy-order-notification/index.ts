@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "VideoForge <noreply@ethinx.com>",
+        from: "VideoForge <noreply@ethinx.solutions>",
         to: [email],
         subject: "Your VideoForge DFY Order is Confirmed",
         html: `
@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "VideoForge <noreply@ethinx.com>",
+        from: "VideoForge <noreply@ethinx.solutions>",
         to: ["troy@ethinx.com"],
         subject: "New DFY Order Received",
         html: `
