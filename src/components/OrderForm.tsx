@@ -26,7 +26,6 @@ const OrderForm = () => {
     story: "",
     themes: [] as string[],
     customPricing: false,
-    });
   });
 
   const toggleTheme = (t: string) => {
