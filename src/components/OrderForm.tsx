@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Zap, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const niches = [
   "Fitness / Health",
