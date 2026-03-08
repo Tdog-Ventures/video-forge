@@ -68,6 +68,24 @@ const OfferCard = () => {
           <p className="text-center text-muted-foreground text-xs mt-4">
             One-time payment. Full delivery within 48 hours.
           </p>
+
+          {/* Trust Signals */}
+          <div className="mt-8 pt-6 border-t border-border/40 space-y-4">
+            <div className="flex items-center justify-center gap-2 text-sm text-primary font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              30-Day Money-Back Guarantee
+            </div>
+            <div className="flex items-center justify-center gap-4 text-muted-foreground text-xs">
+              <span className="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                Secure checkout via Stripe
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                SSL encrypted
+              </span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
