@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Zap } from "lucide-react";
+import { Check, Zap, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
@@ -58,9 +58,18 @@ const OfferCard = () => {
             </p>
           </div>
 
-          <Button variant="neon" size="xl" className="w-full" onClick={scrollToOrder}>
-            <Zap className="w-5 h-5" />
-            Claim Your Spot
+          <Button variant="neon" size="xl" className="w-full" asChild>
+            <a href="#stripe-full">
+              <Zap className="w-5 h-5" />
+              Claim Your Spot
+            </a>
+          </Button>
+
+          <Button variant="neon-outline" size="xl" className="w-full mt-3" asChild>
+            <a href="#stripe-split">
+              <CreditCard className="w-5 h-5" />
+              Payment Plan — $199/mo × 5
+            </a>
           </Button>
 
           <p className="text-center text-muted-foreground text-xs mt-4">

@@ -3,9 +3,6 @@ import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  const scrollToOrder = () => {
-    document.getElementById("order-form")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -51,12 +48,16 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button variant="neon" size="xl" onClick={scrollToOrder}>
-            <Zap className="w-5 h-5" />
-            Claim Your Spot
+          <Button variant="neon" size="xl" asChild>
+            <a href="#stripe-full">
+              <Zap className="w-5 h-5" />
+              Claim Your Spot
+            </a>
           </Button>
-          <Button variant="neon-outline" size="xl" onClick={scrollToOrder}>
-            View Payment Plans
+          <Button variant="neon-outline" size="xl" asChild>
+            <a href="#stripe-split">
+              View Payment Plans
+            </a>
           </Button>
         </motion.div>
       </div>
