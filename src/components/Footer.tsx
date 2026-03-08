@@ -19,6 +19,14 @@ const Footer = () => (
       <p className="text-xs text-muted-foreground/60">
         © {new Date().getFullYear()} Creatorosystem. All rights reserved.
       </p>
+      <a
+        href="https://ethinx-win-showcase.lovable.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-xs text-muted-foreground/40 hover:text-primary transition-colors"
+      >
+        Part of the ETHINX ecosystem
+      </a>
     </div>
   </footer>
 );
