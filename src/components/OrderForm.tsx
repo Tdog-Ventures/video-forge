@@ -59,7 +59,18 @@ const OrderForm = () => {
       console.error(error);
       return;
     }
-    toast.success("Your spot has been reserved! We'll be in touch within 24 hours.");
+    // Send notification emails
+    supabase.functions.invoke("send-dfy-order-notification", {
+      body: {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        business_name: form.story.trim() || null,
+        business_type: form.niche,
+        payment_plan: form.customPricing ? "custom" : "standard",
+      },
+    }).catch((err) => console.error("Email notification failed:", err));
+
+    toast.success("Order submitted! Check your email for confirmation.");
     setForm({ name: "", email: "", phone: "", niche: "", story: "", themes: [], customPricing: false });
   };
 
@@ -198,7 +209,7 @@ const OrderForm = () => {
               <Zap className="w-5 h-5" />
               {submitting ? "Reserving..." : "Reserve My Spot ($997)"}
             </Button>
-            <a href="#stripe-split" className="block">
+            <a href="https://buy.stripe.com/PLACEHOLDER_SPLIT" target="_blank" rel="noopener noreferrer" className="block">
               <Button variant="neon-outline" size="xl" type="button" className="w-full">
                 <CreditCard className="w-5 h-5" />
                 Payment Plan — $199/mo × 5
