@@ -39,8 +39,8 @@ const OrderForm = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.niche) {
       toast.error("Please fill in all required fields.");
       return;
