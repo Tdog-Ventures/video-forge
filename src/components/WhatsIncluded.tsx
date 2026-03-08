@@ -11,7 +11,7 @@ const items = [
 ];
 
 const WhatsIncluded = () => (
-  <section className="py-24 px-6">
+  <section id="included" className="py-24 px-6 scroll-mt-20">
     <div className="container max-w-5xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

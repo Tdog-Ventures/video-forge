@@ -23,7 +23,7 @@ const cases = [
 ];
 
 const ResultsSection = () => (
-  <section className="py-24 px-6 bg-secondary/30">
+  <section id="results" className="py-24 px-6 bg-secondary/30 scroll-mt-20">
     <div className="container max-w-5xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
