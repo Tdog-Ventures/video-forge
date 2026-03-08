@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import OfferCard from "@/components/OfferCard";
 import WhatsIncluded from "@/components/WhatsIncluded";
@@ -11,6 +12,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
+      <Navbar />
       <HeroSection />
       <OfferCard />
       <WhatsIncluded />
