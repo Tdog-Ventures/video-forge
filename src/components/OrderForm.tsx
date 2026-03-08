@@ -39,8 +39,8 @@ const OrderForm = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.niche) {
       toast.error("Please fill in all required fields.");
       return;
@@ -187,12 +187,17 @@ const OrderForm = () => {
 
           {/* Payment buttons */}
           <div className="space-y-3 mt-2">
-            <a href="#stripe-full" className="block">
-              <Button variant="neon" size="xl" type="button" className="w-full" disabled={submitting}>
-                <Zap className="w-5 h-5" />
-                {submitting ? "Reserving..." : "Reserve My Spot ($997)"}
-              </Button>
-            </a>
+            <Button
+              variant="neon"
+              size="xl"
+              type="button"
+              className="w-full"
+              disabled={submitting}
+              onClick={handleSubmit}
+            >
+              <Zap className="w-5 h-5" />
+              {submitting ? "Reserving..." : "Reserve My Spot ($997)"}
+            </Button>
             <a href="#stripe-split" className="block">
               <Button variant="neon-outline" size="xl" type="button" className="w-full">
                 <CreditCard className="w-5 h-5" />

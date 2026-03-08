@@ -786,6 +786,48 @@ export type Database = {
           },
         ]
       }
+      partner_applications: {
+        Row: {
+          agency_name: string
+          contact_name: string
+          created_at: string
+          current_clients: string
+          email: string
+          id: string
+          monthly_budget: string
+          preferred_tier: string
+          status: string
+          website: string
+          why_partner: string
+        }
+        Insert: {
+          agency_name: string
+          contact_name: string
+          created_at?: string
+          current_clients: string
+          email: string
+          id?: string
+          monthly_budget: string
+          preferred_tier: string
+          status?: string
+          website: string
+          why_partner: string
+        }
+        Update: {
+          agency_name?: string
+          contact_name?: string
+          created_at?: string
+          current_clients?: string
+          email?: string
+          id?: string
+          monthly_budget?: string
+          preferred_tier?: string
+          status?: string
+          website?: string
+          why_partner?: string
+        }
+        Relationships: []
+      }
       project_stripe_config: {
         Row: {
           created_at: string
