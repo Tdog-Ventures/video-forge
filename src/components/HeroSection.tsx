@@ -3,9 +3,6 @@ import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  const scrollToOrder = () => {
-    document.getElementById("order-form")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">

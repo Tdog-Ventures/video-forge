@@ -26,7 +26,7 @@ const OrderForm = () => {
     story: "",
     themes: [] as string[],
     customPricing: false,
-    payment: "stripe" as "stripe" | "paypal",
+    });
   });
 
   const toggleTheme = (t: string) => {
