@@ -169,35 +169,24 @@ const OrderForm = () => {
             <span className="text-sm text-foreground/80">Interested in custom volume pricing?</span>
           </label>
 
-          {/* Payment method */}
-          <div>
-            <label className="block text-sm font-semibold font-display mb-3">Payment Method</label>
-            <div className="flex gap-3">
-              {(["stripe", "paypal"] as const).map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  onClick={() => setForm({ ...form, payment: m })}
-                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border text-sm font-medium transition-all duration-200 ${
-                    form.payment === m
-                      ? "border-neon bg-primary/10 text-primary"
-                      : "border-border bg-secondary text-muted-foreground"
-                  }`}
-                >
-                  <CreditCard className="w-4 h-4" />
-                  {m === "stripe" ? "Stripe" : "PayPal"}
-                </button>
-              ))}
-            </div>
+          {/* Payment buttons */}
+          <div className="space-y-3 mt-2">
+            <a href="#stripe-full" className="block">
+              <Button variant="neon" size="xl" type="button" className="w-full">
+                <Zap className="w-5 h-5" />
+                Reserve My Spot ($997)
+              </Button>
+            </a>
+            <a href="#stripe-split" className="block">
+              <Button variant="neon-outline" size="xl" type="button" className="w-full">
+                <CreditCard className="w-5 h-5" />
+                Payment Plan — $199/mo × 5
+              </Button>
+            </a>
           </div>
 
-          <Button variant="neon" size="xl" type="submit" className="w-full mt-4">
-            <Zap className="w-5 h-5" />
-            Reserve My Spot ($997)
-          </Button>
-
           <p className="text-center text-muted-foreground text-xs">
-            Or pay <span className="text-primary font-semibold">$199/month × 5</span> · 30-day money-back guarantee
+            30-day money-back guarantee · Secure Stripe checkout
           </p>
         </motion.form>
       </div>
