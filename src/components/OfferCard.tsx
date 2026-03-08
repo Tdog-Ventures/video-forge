@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Zap, CreditCard } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
