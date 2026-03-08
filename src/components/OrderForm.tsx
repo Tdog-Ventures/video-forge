@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Zap, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const niches = [
   "Fitness / Health",
@@ -27,6 +28,7 @@ const OrderForm = () => {
     themes: [] as string[],
     customPricing: false,
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const toggleTheme = (t: string) => {
     setForm((prev) => ({
@@ -37,13 +39,28 @@ const OrderForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.niche) {
       toast.error("Please fill in all required fields.");
       return;
     }
+    setSubmitting(true);
+    const { error } = await supabase.from("dfy_orders").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      business_name: form.story.trim() || null,
+      business_type: form.niche,
+      payment_plan: form.customPricing ? "custom" : "standard",
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error(error);
+      return;
+    }
     toast.success("Your spot has been reserved! We'll be in touch within 24 hours.");
+    setForm({ name: "", email: "", phone: "", niche: "", story: "", themes: [], customPricing: false });
   };
 
   const inputClass =
@@ -171,9 +188,9 @@ const OrderForm = () => {
           {/* Payment buttons */}
           <div className="space-y-3 mt-2">
             <a href="#stripe-full" className="block">
-              <Button variant="neon" size="xl" type="button" className="w-full">
+              <Button variant="neon" size="xl" type="button" className="w-full" disabled={submitting}>
                 <Zap className="w-5 h-5" />
-                Reserve My Spot ($997)
+                {submitting ? "Reserving..." : "Reserve My Spot ($997)"}
               </Button>
             </a>
             <a href="#stripe-split" className="block">

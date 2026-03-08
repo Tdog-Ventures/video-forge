@@ -149,6 +149,39 @@ export type Database = {
         }
         Relationships: []
       }
+      dfy_orders: {
+        Row: {
+          business_name: string | null
+          business_type: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          payment_plan: string | null
+          status: string
+        }
+        Insert: {
+          business_name?: string | null
+          business_type?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          payment_plan?: string | null
+          status?: string
+        }
+        Update: {
+          business_name?: string | null
+          business_type?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          payment_plan?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       digital_originals: {
         Row: {
           created_at: string | null
@@ -183,6 +216,33 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      enrollments: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          source_page: string | null
+          tier: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          source_page?: string | null
+          tier?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          source_page?: string | null
+          tier?: string
+        }
+        Relationships: []
       }
       errors: {
         Row: {
@@ -568,6 +628,33 @@ export type Database = {
           },
         ]
       }
+      member_progress: {
+        Row: {
+          created_at: string
+          current_week: number
+          email: string
+          id: string
+          last_accessed: string
+          modules_completed: string[]
+        }
+        Insert: {
+          created_at?: string
+          current_week?: number
+          email: string
+          id?: string
+          last_accessed?: string
+          modules_completed?: string[]
+        }
+        Update: {
+          created_at?: string
+          current_week?: number
+          email?: string
+          id?: string
+          last_accessed?: string
+          modules_completed?: string[]
+        }
+        Relationships: []
+      }
       microproducts: {
         Row: {
           active: boolean
@@ -902,6 +989,39 @@ export type Database = {
             referencedColumns: ["user_id"]
           },
         ]
+      }
+      video_requests: {
+        Row: {
+          created_at: string
+          duration: string
+          email: string
+          id: string
+          platform: string
+          status: string
+          tone: string
+          topic: string
+        }
+        Insert: {
+          created_at?: string
+          duration: string
+          email: string
+          id?: string
+          platform: string
+          status?: string
+          tone: string
+          topic: string
+        }
+        Update: {
+          created_at?: string
+          duration?: string
+          email?: string
+          id?: string
+          platform?: string
+          status?: string
+          tone?: string
+          topic?: string
+        }
+        Relationships: []
       }
       worker_heartbeat: {
         Row: {
